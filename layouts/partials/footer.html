@@ -45,7 +45,10 @@
 					<ul class="unstyle-list small">
 						{{ $sitemap := .Site.Menus.sitemap }}
 						{{ range $sitemap }}
-						<li class="mb-2"><a class="text-light" href="{{ .URL | absURL }}">{{ .Name }}</a></li>
+						<li class="mb-2">
+							<a class="text-light" href="{{ $.Site.BaseURL }}{{ .URL }}"
+							  class="nav-link text-dark text-sm-center p-2 {{ if $.IsHome }}scroll{{ end }}">{{ .Name }}</a>
+						  </li>
 						{{ end }}
 					</ul>
 				</div>
@@ -69,10 +72,10 @@
 		<div class="row footer__footer">
 			<div class="col-lg-6">
 				<div class="footer__footer_copy text-light">
-					<p>Copyright {{ dateFormat "2006" now }} - All Rights Reserved by <a class="text-light" href="https://staticmania.com/" target="_blank">StaticMania</a></p>
+					<p>Copyright {{ dateFormat "2006" now }} - All Rights Reserved by Leen Hboubati</p>
 				</div>
 			</div>
-			<div class="col-lg-6">
+			{{/*  <div class="col-lg-6">
 				<div class="footer__footer_social">
 					<ul class="unstyle-list">
 						{{ $social := .Site.Params.social }}
@@ -83,7 +86,7 @@
 						{{ end }}
 					</ul>
 				</div>
-			</div>
+			</div>  */}}
 		</div>
 	</div>
 </section>
