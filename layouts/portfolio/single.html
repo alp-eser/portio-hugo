@@ -31,10 +31,10 @@
           {{ .Params.shortDescription }}
         </p>
         <div class="case-details-info">
-          <div class="case-details-info-item">
-            <h5 class="text-light">Client</h5>
-            <p>{{ .Params.client }}</p>
-          </div>
+          {{/*  <div class="case-details-info-item">
+            <h5 class="text-light">GOGO</h5>
+            <p>{{ .Params.GOGO }}</p>
+          </div>  */}}
           <div class="case-details-info-item">
             <h5>Service</h5>
             <p>{{ .Params.service }}</p>
@@ -68,6 +68,20 @@
         {{ .Content }}
       </div>
     </div>
+    <!-- MY SLIDE SHOW COMPONENT -->
+    <div class="row mb-5">
+      <h3>Slide Show</h3>
+      <div class="col-lg-10 offset-lg-1">
+        <div style="display: flex; gap:10px; flex-wrap:wrap; justify-content:center ;width:100%;">
+          {{range .Params.slideShowImages}}       
+            <div class="image-item" style="box-shadow:-1px 2px 17px -8px rgba(0,0,0,0.75);padding:10px;border-radius:7%;width:30%;display:flex;align-items:center;">
+              <img src="{{. | absURL}}" alt="" width="100%"/>
+            </div>
+          {{end}}
+        </div>
+      </div>
+    </div>
+    <!-- MY SLIDE SHOW COMPONENT -->
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
         <nav class="case-details-nav d-flex justify-content-between align-items-center">
@@ -82,13 +96,13 @@
               </svg>
             </div>
             <div class="content">
-              <span class="small">Prev case</span>
+              <span class="small">Previous Project</span>
               <h5 class="title"><a class="text-dark"
                   href="{{ .PrevInSection.Permalink }}">{{ .PrevInSection.Title }}</a></h5>
             </div>
           </div>
           {{ end }}
-          <div class="social">
+          {{/*  <div class="social">
             {{ $url := printf "%s" .Permalink | absLangURL }}
             <ul class="unstyle-list big">
               <li>
@@ -104,11 +118,11 @@
                     class="fa fa-twitter-square btn-zoom"></i></a>
               </li>
             </ul>
-          </div>
+          </div>  */}}
           {{ if .NextInSection }}
           <div class="next d-flex align-items-center">
             <div class=" content text-right">
-              <span class="small">Next case</span>
+              <span class="small">Next Project</span>
               <h5 class="title">
                 <a class="text-dark" href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }}</a>
               </h5>
